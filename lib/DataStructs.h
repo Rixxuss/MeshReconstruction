@@ -2,6 +2,7 @@
 #include <vector>
 #include <array>
 #include <functional>
+#include <cmath>
 
 namespace MeshReconstruction
 {
