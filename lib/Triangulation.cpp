@@ -278,10 +278,19 @@ void MeshReconstruction::Triangulate(
 
 	for (auto i = 0; tri[i] != -1; i += 3)
 	{
-		auto const& v0 = intersect.edgeVertIndices[tri[i]];
-		auto const& v1 = intersect.edgeVertIndices[tri[i + 1]];
-		auto const& v2 = intersect.edgeVertIndices[tri[i + 2]];
+		auto v0 = intersect.edgeVertIndices[tri[i]];
+		auto v1 = intersect.edgeVertIndices[tri[i + 1]];
+		auto v2 = intersect.edgeVertIndices[tri[i + 2]];
 
+        if (std::abs(v0.x) < 0.000001) { v0 = Vec3((double)0, v0.y, v0.z); }
+        if (std::abs(v0.y) < 0.000001) { v0 = Vec3(v0.x, (double)0, v0.z); }
+        if (std::abs(v0.z) < 0.000001) { v0 = Vec3(v0.x, v0.y, (double)0); }
+        if (std::abs(v1.x) < 0.000001) { v1 = Vec3((double)0, v1.y, v1.z); }
+        if (std::abs(v1.y) < 0.000001) { v1 = Vec3(v1.x, (double)0, v1.z); }
+        if (std::abs(v1.z) < 0.000001) { v1 = Vec3(v1.x, v1.y, (double)0); }
+        if (std::abs(v2.x) < 0.000001) { v2 = Vec3((double)0, v2.y, v2.z); }
+        if (std::abs(v2.y) < 0.000001) { v2 = Vec3(v2.x, (double)0, v2.z); }
+        if (std::abs(v2.z) < 0.000001) { v2 = Vec3(v2.x, v2.y, (double)0); }
 		mesh.vertices.push_back(v0);
 		mesh.vertices.push_back(v1);
 		mesh.vertices.push_back(v2);

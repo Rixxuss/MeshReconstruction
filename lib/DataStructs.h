@@ -8,7 +8,17 @@ namespace MeshReconstruction
 {
 	struct Vec3
 	{
-		double x, y, z;
+
+
+        Vec3(double d, double d1, double d2) : x(d), y(d1), z(d2){
+
+        }
+
+        Vec3() : x(0), y(0), z(0){
+
+        }
+
+        double x, y, z;
 
 		Vec3 operator+(Vec3 const& o) const
 		{

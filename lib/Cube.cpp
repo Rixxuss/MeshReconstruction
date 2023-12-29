@@ -70,15 +70,15 @@ Vec3 Cube::LerpVertex(double isoLevel, int i1, int i2) const {
     auto const &p1 = pos[i1];
     auto const &p2 = pos[i2];
 
-    if (std::abs(isoLevel - v1) < Eps) {
-        return p1;
-    }
-    if (std::abs(isoLevel - v2) < Eps) {
-        return p2;
-    }
-    if (std::abs(v1 - v2) < Eps) {
-        return p1;
-    }
+//    if (std::abs(isoLevel - v1) < Eps) {
+//        return p1;
+//    }
+//    if (std::abs(isoLevel - v2) < Eps) {
+//        return p2;
+//    }
+//    if (std::abs(v1 - v2) < Eps) {
+//        return p1;
+//    }
 
     auto mu = (isoLevel - v1) / (v2 - v1);
     return p1 + (p2 - p1) * mu;
