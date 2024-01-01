@@ -65,7 +65,6 @@ Mesh MeshReconstruction::MarchCube(
 				// Process only if cube lies within narrow band around surface.
 				auto cubeCenter = min + HalfCubeSize;
 				auto dist = abs(sdf(cubeCenter) - isoLevel);
-				if (dist > HalfCubeDiag) continue;
 
 				Cube cube({ min, cubeSize }, sdf);
 				auto intersect = cube.Intersect(isoLevel);
