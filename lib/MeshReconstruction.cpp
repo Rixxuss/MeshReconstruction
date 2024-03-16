@@ -40,9 +40,9 @@ Mesh MeshReconstruction::MarchCube(
 		? [&sdf](Vec3 const& p) { return NumGrad(sdf, p); }
 		: sdfGrad;
 
-	auto const NumX = static_cast<int>(ceil(domain.size.x / cubeSize.x));
-	auto const NumY = static_cast<int>(ceil(domain.size.y / cubeSize.y));
-	auto const NumZ = static_cast<int>(ceil(domain.size.z / cubeSize.z));
+	auto const NumX = static_cast<int>(floor(domain.size.x / cubeSize.x));
+	auto const NumY = static_cast<int>(floor(domain.size.y / cubeSize.y));
+	auto const NumZ = static_cast<int>(floor(domain.size.z / cubeSize.z));
 
 	auto const HalfCubeDiag = cubeSize.Norm() / 2.0;
 	auto const HalfCubeSize = cubeSize * 0.5;
